@@ -10,104 +10,136 @@
 <body>
 <script>
 
-    // 1. Переписать примеры с итерацией числа и прерыванием цикла с помощью while и do/while
+   // 1. Переписать примеры с итерацией числа и прерыванием цикла с помощью while и do/while
 
-    //for :
-    for (var i = 1; i < 10; i++) {
-        if (!(i % 5)) break;
-        console.log(i);
-    }
+   //for :
+   for (var i = 1; i < 10; i++) {
+       if (!(i % 5)) break;
+       console.log(i);
+   }
 
-    // do while :
-    var j = 1;
-    do {
-        if (j < 10) {
-            console.log(j);
-        }
-        j++;
-    } while((j % 5));
+   // do while :
+   var j = 1;
+   do {
+       if (j < 10) {
+           console.log(j);
+       }
+       j++;
+   } while((j % 5));
 
-    //while :
-    var k = 1;
-    while ((k % 5) && (k < 10)) {
-        console.log(k);
-        k++;
-    }
+   //while :
+   var k = 1;
+   while ((k % 5) && (k < 10)) {
+       console.log(k);
+       k++;
+   }
 
 
-    // 2. Скрипт о запросе на угадывание сгенерированного числа так, чтобы человек мог отменить игру, либо угадывать, пока число не станет соответствовать
+   // 2. Скрипт о запросе на угадывание сгенерированного числа так, чтобы человек мог отменить игру, либо угадывать, пока число не станет соответствовать
 
-    // do while :
-    var guessNumber = true;
-    var randomNumber = Math.floor(Math.random() * 5) + 1;
+   //for :
+   for ( var randomNumber1 = Math.floor(Math.random() * 5) + 1, guessNumber1 = true;
+         guessNumber1;
 
-    do {
-        guessNumber = +prompt("Try to guess the random number", "");
-        if (guessNumber === randomNumber){
-            alert("Yes! You did it!");
-            console.log(randomNumber);
-            guessNumber = false;
-        }
-    } while (guessNumber);
+   ) {
+       guessNumber1 = +prompt("Try to guess the random number (for)", "");
+       if (guessNumber1 === randomNumber1){
+           alert("Yes! You did it!");
+           console.log(randomNumber1);
+           guessNumber1 = false;
+       }
+   }
 
-    //for :
-    for ( var randomNumber2 = Math.floor(Math.random() * 5) + 1, guessNumber2 = true;
-          guessNumber2;
+   // do while :
+   var guessNumber2 = true;
+   var randomNumber2 = Math.floor(Math.random() * 5) + 1;
 
-    ) {
-            guessNumber2 = +prompt("Try to guess the random number2", "");
-        if (guessNumber2 === randomNumber2){
-            alert("Yes! You did it!");
-            console.log(randomNumber2);
-            guessNumber2 = false;
-        }
-    }
+   do {
+       guessNumber2 = +prompt("Try to guess the random number (do while)", "");
+       if (guessNumber2 === randomNumber2){
+           alert("Yes! You did it!");
+           console.log(randomNumber2);
+           guessNumber2 = false;
+       }
+   } while (guessNumber2);
 
-    // while :
-    var guessNumber3 = true;
-    var randomNumber3 = Math.floor(Math.random() * 5) + 1;
+   // while :
+   var guessNumber3 = true;
+   var randomNumber3 = Math.floor(Math.random() * 5) + 1;
 
-    while (guessNumber3) {
-        guessNumber3 = +prompt("Try to guess the random number3", "");
-        if (guessNumber3 === randomNumber3) {
-            alert("Yes! You did it!");
-            console.log(randomNumber3);
-            guessNumber3 = false;
-        }
-    }
+   while (guessNumber3) {
+       guessNumber3 = +prompt("Try to guess the random number (while)", "");
+       if (guessNumber3 === randomNumber3) {
+           alert("Yes! You did it!");
+           console.log(randomNumber3);
+           guessNumber3 = false;
+       }
+   }
 
-    // 3. Запросить у пользователя значение, кратное которому будут выводиться числа - вывести их в консоль.
+   // 3. Запросить у пользователя значение, кратное которому будут выводиться числа - вывести их в консоль.
 
-    sayNumber = +prompt("Say random number", "");
+   sayNumber = +prompt("Say random number", "");
 
-    //for :
-    for (var a = 1; a < 100; a++) {
-        if (!(a % sayNumber)) {
-            console.log(a);
-        }
-    }
+   //for :
+   for (var a = 1; a < 100; a++) {
+       if (!(a % sayNumber)) {
+           console.log(a);
+       }
+   }
 
-    // do while :
-    var b = 1;
-    do {
-        if (!(b % sayNumber)) {
-            console.log(b);
-        }
-        b++;
-    } while((b < 100));
+   // do while :
+   var b = 1;
+   do {
+       if (!(b % sayNumber)) {
+           console.log(b);
+       }
+       b++;
+   } while((b < 100));
+
+   //while:
+   var c = 1;
+   while (c < 100) {
+       if (!(c % sayNumber)) {
+           console.log(c);
+       }
+       c++;
+   }
+
+    // (Усложняем) Кроме кратного запросить количество чисел, которые следует вывести
+
+   // for :
+   sayRandomNumber1 = +prompt("Enter a value that is a multiple of which numbers will be displayed (for)", "");
+   sayCountNumber1 = +prompt("How many numbers should be displayed on the screen? (for)", "");
+   for (var f = 1; sayCountNumber1 !== 0; f++) {
+       if (!(f % sayRandomNumber1)) {
+           console.log(f);
+           sayCountNumber1--;
+       }
+   }
+
+   // do while :
+   sayRandomNumber2 = +prompt("Enter a value that is a multiple of which numbers will be displayed (do while)", "");
+   sayCountNumber2 = +prompt("How many numbers should be displayed on the screen?", "");
+   var e = 1;
+   do {
+       if(!(e % sayRandomNumber2)) {
+           console.log(e);
+           sayCountNumber2--;
+       }
+       e++;
+   } while(sayCountNumber2 !== 0);
 
     //while:
-    var c = 1;
-    while (c < 100) {
-        if (!(c % sayNumber)) {
-            console.log(c);
+    sayRandomNumber3 = +prompt("Enter a value that is a multiple of which numbers will be displayed (while)", "");
+    sayCountNumber3 = +prompt("How many numbers should be displayed on the screen?", "");
+    var d = 1;
+    while(sayCountNumber3 !== 0) {
+        if(!(d % sayRandomNumber3)) {
+            console.log(d);
+            sayCountNumber3--;
         }
-        c++;
+        d++;
     }
-
-// (Усложняем) Кроме кратного запросить количество чисел, которые следует вывести
-
-
 
 </script>
 </body>
