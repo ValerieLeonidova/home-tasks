@@ -1,0 +1,37 @@
+<script>
+    console.clear();
+
+    alert("Enter any numbers in the following windows and you will find the arithmetic mean");
+
+    var num1 = prompt("Enter first number", "");
+    var num2 = prompt("Enter second number", "");
+    var num3 = prompt("Enter third number", "");
+
+    console.group('The same type from first two windows:');
+    console.log(typeof num1 === typeof num2);
+    console.groupEnd();
+    console.group('The same values from first two windows:');
+    console.log(num1 === num2);
+    console.groupEnd();
+
+    numSeveral = (+num1 + +num2 + +num3) / 3;
+
+    alert("Your arithmetic mean is " + numSeveral);
+
+    alert("Now, try to guess the number!");
+
+    var randomNumber = Math.floor(Math.random() * 10) + 1;
+
+    console.group('The random number:');
+    console.log(randomNumber);
+    console.groupEnd();
+
+    var userNumber = prompt("Enter number from 1 to 10", "");
+
+    if (randomNumber === +userNumber) {
+        alert("Yes! You did it!");
+    } else {
+        alert("Sorry! Try again later!");
+    }
+
+</script>

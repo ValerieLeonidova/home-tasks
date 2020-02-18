@@ -1,0 +1,28 @@
+<script>
+    console.clear()
+    console.time('Time');
+
+    console.group('Main Group');
+    console.log('Main Group Content');
+
+    console.group('Inner Group One');
+
+    console.groupCollapsed('Item Inner One');
+    console.log('Item Inner One Content');
+    console.groupEnd();
+
+    console.groupCollapsed('Item Inner Two');
+    console.log('Item Inner Two Content');
+    console.groupEnd();
+    console.groupEnd();
+
+    console.group('Inner Group Two');
+    console.log('Inner Group Two Content');
+    console.groupEnd();
+    console.groupEnd();
+    console.groupEnd();
+
+    console.table([["Tom", "Nick", "Jack"], ["Black", "White", "Brown"]]);
+
+    console.timeEnd('Time');
+</script>

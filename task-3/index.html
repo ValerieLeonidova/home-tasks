@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+
+    // age verification with else/if
+
+    alert("AGE VERIFICATION");
+
+    var yearBirth = prompt("What is your year of birth? (Example:1900)", "");
+
+
+    if (+yearBirth >= 1900 && +yearBirth <= 2002) {
+        alert("Access Allowed");
+    } else if (+yearBirth > 2002 && +yearBirth < 2009) {
+        alert("Access Denied");
+    } else if (+yearBirth >= 2009 && +yearBirth <= 2020) {
+        alert("We Recommend Another Service");
+    } else {
+        alert("Wrong Format");
+    }
+
+    // age verification with ternary operators
+
+    console.group('age verification with ternary operators');
+    var yearBirthResult = (+yearBirth >= 1900 && +yearBirth <= 2002) ? console.log("Access Allowed") :
+        (+yearBirth > 2002 && +yearBirth < 2009) ? console.log("Access Denied") :
+            (+yearBirth >= 2009 && +yearBirth <= 2020) ? console.log("We Recommend Another Service") : console.log("Wrong Format")
+    console.groupEnd();
+
+    // search for a candidate
+
+    var candidateMale = false;
+    var candidateEducation = true;
+    var candidateAge = '32';
+    var candidateExperience = '6';
+
+    console.group('Search for a candidate');
+    if (!candidateMale && +candidateAge >= 30 && +candidateExperience >= 3 && candidateEducation) {
+        console.log("You are perfect candidate!");
+    } else {
+        console.log("You are't our candidate!");
+    }
+    console.groupEnd();
+</script>
+</body>
+</html>
+
