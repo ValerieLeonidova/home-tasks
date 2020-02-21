@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 6</title>
+</head>
+<body>
+<script>
+
+    // Создать массив из 3х массивов с 3-мя рандомными значениями. Проверить на соответствие всех значений в средней горизонтальной линии.
+
+    var list1 = [];
+    var list2 = [];
+    var list3 = [];
+    var listAll = [];
+
+
+    for(var i = 0; i < 3; i++ ) {
+        var rundomNum1 = Math.floor(Math.random() * 3) + 1;
+        var rundomNum2 = Math.floor(Math.random() * 3) + 1;
+        var rundomNum3 = Math.floor(Math.random() * 3) + 1;
+        list1.push(rundomNum1);
+        list2.push(rundomNum2);
+        list3.push(rundomNum3);
+    }
+
+    listAll.push(list1, list2, list3);
+
+    console.log(list1);
+    console.log(list2);
+    console.log(list3);
+    console.log(listAll);
+
+
+    if (listAll[0][1] === listAll[1][1] && listAll[1][1] === listAll[2][1]) {
+        alert("You win!");
+    }
+
+    //Подготовить строку из всех возможных букв английского алфавита.
+
+    // countWordNumber = +prompt("How many words should be displayed on the screen?", "");
+    // min = +prompt("Enter a min value that can contain the word", "");
+    // max = +prompt("Enter a max value that can contain the word", "");
+    countWordNumber = 10;
+    min = 3;
+    max = 5;
+
+    var alphabeth = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+    var randomMinMax = Math.floor(Math.random() * (max - min + 1)) + min; //
+
+    var newWordArray = [];
+
+    var newArray = [];
+
+
+    for(var j = 0; j < randomMinMax; j++ ) {
+        var newWord = alphabeth[Math.floor(Math.random()*(alphabeth.length))];
+        console.log(newWord);
+        newWordArray.push(newWord);
+    }
+    newArray.push(newWordArray);
+
+
+    console.log(newWordArray);
+    console.log(newArray);
+
+
+</script>
+</body>
+</html>
+
