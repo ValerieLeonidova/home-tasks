@@ -12,32 +12,75 @@
 
     // Создать массив из 3х массивов с 3-мя рандомными значениями. Проверить на соответствие всех значений в средней горизонтальной линии.
 
-    var list1 = [];
-    var list2 = [];
-    var list3 = [];
-    var listAll = [];
+    var arrList = [];
+    var elementsInList = 3;
+    var maxRandomNum = 3;
+    var pickTimesFromUser = +prompt('enter the number of attempts', '');
+
+    for (f = 0; f < pickTimesFromUser; f++) {
+        var arrList = [];
+        for (var i = 0; i < elementsInList; i++) {
+            arrList.push([
+                Math.floor(Math.random() * maxRandomNum),
+                Math.floor(Math.random() * maxRandomNum),
+                Math.floor(Math.random() * maxRandomNum)
+            ])
+        }
+        var lineIdentical = false;
+        console.log(arrList);
 
 
-    for(var i = 0; i < 3; i++ ) {
-        var rundomNum1 = Math.floor(Math.random() * 3) + 1;
-        var rundomNum2 = Math.floor(Math.random() * 3) + 1;
-        var rundomNum3 = Math.floor(Math.random() * 3) + 1;
-        list1.push(rundomNum1);
-        list2.push(rundomNum2);
-        list3.push(rundomNum3);
+        if (arrList[0][1] === arrList[1][1] && arrList[1][1] === arrList[2][1]) {
+            lineIdentical = true;
+        }
+        console.log(lineIdentical);
     }
 
-    listAll.push(list1, list2, list3);
 
-    console.log(list1);
-    console.log(list2);
-    console.log(list3);
-    console.log(listAll);
+    //
+    function creatArrList (elementsNum, randomNum) {
+        var arrList = [];
+        for (var i = 0; i < elementsNum; i++) {
+            arrList.push([
+                Math.floor(Math.random() * randomNum),
+                Math.floor(Math.random() * randomNum),
+                Math.floor(Math.random() * randomNum)
+            ])
+        }
+        console.log(arrList);
+        return arrList;
 
-
-    if (listAll[0][1] === listAll[1][1] && listAll[1][1] === listAll[2][1]) {
-        alert("You win!");
     }
+
+    function checkLines(arrList){
+        var lineIndent = false;
+
+        if (arrList[0][1] === arrList[1][1] && arrList[1][1] === arrList[2][1]) {
+            lineIndent = true;
+            alert('You win!')
+        }
+
+        return lineIndent;
+    }
+
+    function creatCasino (pickTimesFromUser, elementsNum, randomNum){
+        for(j = 0; j < pickTimesFromUser; j++) {
+            var arrList = creatArrList(elementsNum, randomNum);
+            if (checkLines(arrList)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var casinoResults = creatCasino(pickTimesFromUser, 3, 3);
+
+    console.log(casinoResults);
+
+
+
+
+
 
     //Подготовить строку из всех возможных букв английского алфавита.
 

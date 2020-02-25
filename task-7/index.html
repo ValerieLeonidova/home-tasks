@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 7</title>
+</head>
+<body>
+<script>
+    // 1. Разделить задачу с угадыванием числа на функции.
+
+
+    function numberIdentity(guessNumber, randomNumber) {
+        var comparing = false;
+        if (guessNumber === randomNumber){
+            comparing = true;
+            alert("Yes! You did it!");
+            console.log(randomNumber);
+        }
+        return comparing;
+    }
+
+    function playGame() {
+        for ( var randomNumber = Math.floor(Math.random() * 5) + 1, guessNumber = true;
+              guessNumber;
+
+        ) {
+            guessNumber = +prompt("Try to guess the random number (1-5) ", "");
+            if (numberIdentity(guessNumber, randomNumber)){
+                guessNumber = false;
+            }
+        }
+    }
+
+    var result = playGame();
+
+
+
+</script>
+</body>
+</html>
+
