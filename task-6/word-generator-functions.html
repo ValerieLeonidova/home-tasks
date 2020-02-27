@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 6</title>
+</head>
+<body>
+<script>
+
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+    var wordAmount = 10;
+    var minLength = 3;
+    var maxlength = 10;
+
+
+
+    function createNewWord(wordLength) {
+        var word = '';
+        for (j = 0; j < wordLength; j++) {
+            word = word + alphabet[random(0, alphabet.length)];
+        }
+        return word;
+    }
+
+
+    function createWordsAmount() {
+        var library = {};
+        for (j = 0; j < wordAmount; j++) {
+            var wordLength = random(minLength, maxlength);
+            var word = createNewWord(wordLength);
+
+            if (library[wordLength]) {
+                library[wordLength].push(word);
+            } else {
+                library[wordLength] = [word];
+            }
+        }
+        return library;
+    }
+
+    function report() {
+        for (var item in library) {
+            console.log(
+                library[item].length + ' word(s) with ' + item + ' letters'
+            );
+
+        }
+    }
+
+
+    var library = createWordsAmount();
+    console.log(library);
+
+    report();
+
+
+
+</script>
+</body>
+</html>
+

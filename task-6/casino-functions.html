@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Casino Functions</title>
+</head>
+<body>
+<script>
+
+    // Создать массив из 3х массивов с 3-мя рандомными значениями. Проверить на соответствие всех значений в средней горизонтальной линии.
+
+    var pickTimesFromUser = +prompt('enter the number of attempts', '');
+
+    function creatArrList (elementsNum, randomNum) {
+        var arrList = [];
+        for (var i = 0; i < elementsNum; i++) {
+            arrList.push([
+                Math.floor(Math.random() * randomNum),
+                Math.floor(Math.random() * randomNum),
+                Math.floor(Math.random() * randomNum)
+            ])
+        }
+        console.log(arrList);
+        return arrList;
+
+    }
+
+    function checkLines(arrList){
+        var lineIndent = false;
+
+        if (arrList[0][1] === arrList[1][1] && arrList[1][1] === arrList[2][1]) {
+            lineIndent = true;
+            alert('You win!')
+        }
+
+        return lineIndent;
+    }
+
+    function creatCasino (pickTimesFromUser, elementsNum, randomNum){
+        for(j = 0; j < pickTimesFromUser; j++) {
+            var arrList = creatArrList(elementsNum, randomNum);
+            if (checkLines(arrList)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    var casinoResults = creatCasino(pickTimesFromUser, 3, 3);
+
+    console.log(casinoResults);
+
+
+    
+
+
+</script>
+</body>
+</html>
+

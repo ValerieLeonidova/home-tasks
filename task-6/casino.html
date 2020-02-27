@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Casino</title>
+</head>
+<body>
+<script>
+
+    // Создать массив из 3х массивов с 3-мя рандомными значениями. Проверить на соответствие всех значений в средней горизонтальной линии.
+
+    var arrList = [];
+    var elementsInList = 3;
+    var maxRandomNum = 3;
+    var pickTimesFromUser = +prompt('enter the number of attempts', '');
+
+    for (f = 0; f < pickTimesFromUser; f++) {
+        var arrList = [];
+        for (var i = 0; i < elementsInList; i++) {
+            arrList.push([
+                Math.floor(Math.random() * maxRandomNum),
+                Math.floor(Math.random() * maxRandomNum),
+                Math.floor(Math.random() * maxRandomNum)
+            ])
+        }
+        var lineIdentical = false;
+        console.log(arrList);
+
+
+        if (arrList[0][1] === arrList[1][1] && arrList[1][1] === arrList[2][1]) {
+            lineIdentical = true;
+        }
+        console.log(lineIdentical);
+    }
+
+
+</script>
+</body>
+</html>
+

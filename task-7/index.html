@@ -11,6 +11,10 @@
 <script>
     // 1. Разделить задачу с угадыванием числа на функции.
 
+    function random(min, max) {
+        return Math.floor(Math.random() * (max - min) + min);
+    }
+
 
     function numberIdentity(guessNumber, randomNumber) {
         var comparing = false;
