@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 7</title>
+</head>
+<body>
+<script>
+    // Написать функцию, которая возвращает количество часов, прошедших с момента введенной даты.
+
+
+    function getPassedTimeFromDate() {
+        var presentDate = new Date();
+
+        var customDate = new Date(2020, 1, 28);
+
+        var PassedTime = presentDate - customDate;
+        console.log(presentDate);
+        console.log(customDate);
+        var hr = Math.round(PassedTime / (1000 * 60 * 60));
+        var result = console.log(
+            'Since 28th, February, 00:00, has passed: ' + hr + ' hours '
+        );
+        return result;
+    }
+
+    getPassedTimeFromDate();
+
+
+    // Написать скрипт, который будет выводить часы в консоль. В формате HH:mm:ss
+
+    var time = 1000;
+
+    function currentTime() {
+        var currentDate = new Date();
+        var hr = currentDate.getHours();
+        var min = currentDate.getMinutes();
+        var sec = currentDate.getSeconds();
+        console.log('Current time: ' + hr + ':' + min + ':' + sec);
+    }
+
+
+    setInterval(currentTime, time);
+
+
+</script>
+</body>
+</html>
+
