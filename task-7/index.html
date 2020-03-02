@@ -23,18 +23,15 @@
         if (guessNumber === null) {
             alert("Good Bye!");
             return true;
-        }
-
-        if (Number.isNaN(+guessNumber)) {
+        } else if (Number.isNaN(+guessNumber)) {
             alert("Wrong Format! Try again!");
             return true;
-        }
-
-        if(+guessNumber === randomNumber) {
+        } else if(+guessNumber === randomNumber) {
             alert('You win!');
             return true;
+        } else {
+            return false;
         }
-        return false;
     }
 
     function coincidence() {
