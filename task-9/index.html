@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 9</title>
+</head>
+<body>
+<script>
+
+    function MilitaryResource(type, health, distance) {
+        this.type = type;
+        this.health = health;
+        this.distance = distance;
+    }
+
+    MilitaryResource.prototype.isReadyToMove = function () {
+        return this.distance > 50;
+    };
+
+    MilitaryResource.prototype.isReadyToFight = function () {
+        return this.health > 50;
+    };
+
+
+    function Squad() {
+        this.squad = [];
+    }
+
+    var restore = [];
+
+    Squad.prototype.everyIsReadyToMove = function () {
+        return this.squad.every(function (solder) {
+            return solder.isReadyToMove() === true;
+        });
+    };
+
+    Squad.prototype.everyIsReadyToFight = function () {
+        return this.squad.every(function (solder) {
+            return solder.isReadyToFight() === true;
+        });
+    };
+
+    Squad.prototype.combineResources = function (solder) {
+        if (solder.health < 50 || solder.distance < 50) {
+            restore.push(solder);
+        } else {
+            this.squad.push(solder);
+        }
+    };
+
+
+    var solder1 = new MilitaryResource("Archer", 20, 10);
+    var solder2 = new MilitaryResource("Archer", 51, 79);
+    var solder3 = new MilitaryResource("Infantry", 65, 75);
+    var solder4 = new MilitaryResource("Infantry", 88, 59);
+    var solder5 = new MilitaryResource("Cavalry", 55, 55);
+    var solder6 = new MilitaryResource("Cavalry", 46, 64);
+    var squad = new Squad();
+
+    squad.combineResources(solder1);
+    squad.combineResources(solder2);
+    squad.combineResources(solder3);
+    squad.combineResources(solder4);
+    squad.combineResources(solder5);
+    squad.combineResources(solder6);
+
+    console.log(squad);
+
+    console.log('Everyone in Squad is ready to Moove: ' + squad.everyIsReadyToMove());
+    console.log('Everyone in Squad is ready to Fight: ' + squad.everyIsReadyToFight());
+    console.log('MilitaryResource going to restore: ' + restore.length);
+    console.log(restore);
+
+
+
+</script>
+</body>
+</html>
+
