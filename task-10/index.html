@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 10</title>
+</head>
+<body>
+<script>
+
+    var arr = [-4, -3, -2, -1, 0, 1, 2, 3, 4];
+
+    //forEach
+    function forEach(arr, cb) {
+        for (var i = 0; i < arr.length; i++) {
+            cb(arr[i], i);
+        }
+    }
+
+    forEach(['Mango', 'Apple', 'Banana'], function (value, index) {
+        console.log("forEach: index: " + index + " value: " + value);
+        return true;
+    });
+
+    //map
+    function map(arr, cb) {
+        for (var i = 0; i < arr.length; i++) {
+            cb(arr[i]);
+        }
+    }
+
+    map(arr, function (value) {
+        console.log('map ' + value * 2);
+        return true;
+    });
+
+    //filter
+    function filter(arr, cb) {
+        for (var i = 0; i < arr.length; i++) {
+            cb(arr[i], i);
+        }
+    }
+
+    filter(arr, function (value) {
+        if (!(value % 2)) {
+            console.log('filter even value: ' + value);
+        }
+    });
+
+    //some
+    function some(arr, cb) {
+        for (var i = 0; i < arr.length; i++) {
+            cb(arr[i]);
+        }
+    }
+
+    some(arr, function (value) {
+        var someElement = value > 3;
+        if (someElement) {
+            console.log('From array: [' + arr + ']. Some of value bigger then 3: ' + someElement);
+            return true;
+        }
+        return false;
+    });
+
+    //every
+    function every(arr, cb) {
+        for (var i = 0; i < arr.length; i++) {
+            cb(arr[i]);
+        }
+    }
+
+    every(arr, function (value) {
+        var everyElement = value >= 0;
+        if (!everyElement) {
+            console.log('Every element bigger then 0: ' + everyElement);
+            return false;
+        }
+        return true;
+    });
+
+
+
+
+
+
+
+    //methods
+    //  arr.forEach(function (value) {
+    //      console.log('forEach ' +value);
+    //  });
+    //
+    // arr.map(function (num){
+    //     var newArr = num * 2;
+    //     console.log('map ' +newArr);
+    //     return newArr;
+    // });
+    //
+    // function even(num) {
+    //     return !(num % 2);
+    // }
+    //
+    // function biggerThen(num) {
+    //     return num > 3;
+    // }
+    //
+    //  console.log(arr.filter(even));
+    //  console.log(arr.some(biggerThen));
+    //  console.log(arr.every(biggerThen));
+
+</script>
+</body>
+</html>
+

@@ -46,6 +46,12 @@
     setInterval(currentTime, time);
 
 
+    setTimeout(function run() {
+        var currentDate = new Date();
+        console.log(currentDate);
+        setTimeout(run, time);
+    }, time);
+
 </script>
 </body>
 </html>
