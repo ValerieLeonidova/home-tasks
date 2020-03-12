@@ -34,11 +34,7 @@
     };
 
     MilitaryResource.prototype.restore = function () {
-        if (this.isReadyToMove || this.isReadyToFight) {
-            return false;
-        } else {
-            return true;
-        }
+        return (!(this.isReadyToMove()) || !(this.isReadyToFight()));
     };
 
     function Squad() {
@@ -61,7 +57,7 @@
     };
 
     Squad.prototype.restore = function (solder) {
-        if (!(solder.isReadyToFight()) || !(solder.isReadyToMove())) {
+        if (solder.restore()) {
             restore.push(solder);
         }
     };
