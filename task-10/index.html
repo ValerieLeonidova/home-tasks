@@ -26,28 +26,29 @@
 
     //map
     function map(arr, cb) {
-        for (var i = 0; i < arr.length; i++) {
-            cb(arr[i]);
-        }
+        cb(arr);
     }
 
-    map(arr, function (value) {
-        console.log('map ' + value * 2);
-        return true;
+    map(arr, function () {
+        var doubles = arr.map(function(value) {
+            return value * 2;
+        });
+        console.log(doubles);
     });
 
     //filter
     function filter(arr, cb) {
-        for (var i = 0; i < arr.length; i++) {
-            cb(arr[i], i);
-        }
+        cb(arr);
     }
 
-    filter(arr, function (value) {
-        if (!(value % 2)) {
-            console.log('filter even value: ' + value);
-        }
+    filter(arr, function () {
+        var even = arr.filter(function(num) {
+            return !(num % 2);
+        });
+        console.log(even);
     });
+
+
 
     //some
     function some(arr, cb) {
@@ -87,15 +88,13 @@
 
 
 
-    //methods
+    // methods
     //  arr.forEach(function (value) {
     //      console.log('forEach ' +value);
     //  });
     //
-    // arr.map(function (num){
-    //     var newArr = num * 2;
-    //     console.log('map ' +newArr);
-    //     return newArr;
+    // var doubles = arr.map(function(value) {
+    //     return value * 2;
     // });
     //
     // function even(num) {
@@ -106,9 +105,13 @@
     //     return num > 3;
     // }
     //
+    //  console.log(doubles);
     //  console.log(arr.filter(even));
     //  console.log(arr.some(biggerThen));
     //  console.log(arr.every(biggerThen));
+
+
+
 
 </script>
 </body>
