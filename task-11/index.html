@@ -32,11 +32,13 @@
     Mammal.prototype.constructor = Mammal;
 
     Mammal.prototype.GiveMilk = function() {
-        var qwe = this.gender;
-        if(qwe === 'Female'){
+        var value = this.gender;
+        if(value === 'Female'){
             console.log('Can give milk');
-        } else {
+        } else if ((value === 'Male')){
             console.log('No milk');
+        } else {
+            console.log('Gender not determined');
         }
 
     };
@@ -49,12 +51,13 @@
     Racoon.prototype = Object.create(Mammal.prototype);
     Racoon.prototype.constructor = Racoon;
 
-    var racoons = [new Racoon("Female"), new Racoon("Male")];
+    var racoons = [new Racoon("Female"), new Racoon("Male"), new Racoon()];
 
     racoons[0].Run();
     racoons[1].Jump();
     racoons[0].GiveMilk();
     racoons[1].GiveMilk();
+    racoons[2].GiveMilk();
 
     console.log(racoons);
 
