@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Task 11</title>
+</head>
+<body>
+<script>
+
+    function Animal(gender) {
+        this.gender = gender;
+    }
+
+    Animal.prototype.Run = function() {
+        console.log("Animal Running");
+    };
+
+    Animal.prototype.Jump = function() {
+        console.log("Animal Jumping");
+    };
+
+
+    function Mammal(gender, defaultAppearance) {
+        Animal.call(this, gender);
+        this.defaultAppearance = ["Haired"].concat(defaultAppearance);
+    }
+
+    Mammal.prototype = Object.create(Animal.prototype);
+    Mammal.prototype.constructor = Mammal;
+
+    Mammal.prototype.GiveMilk = function() {
+        var qwe = this.gender;
+        if(qwe === 'Female'){
+            console.log('Can give milk');
+        } else {
+            console.log('No milk');
+        }
+
+    };
+
+    function Racoon(gender) {
+        Mammal.call(this, gender, ["Striped"]);
+        this.skills = "Stealing";
+    }
+
+    Racoon.prototype = Object.create(Mammal.prototype);
+    Racoon.prototype.constructor = Racoon;
+
+    var racoons = [new Racoon("Female"), new Racoon("Male")];
+
+    racoons[0].Run();
+    racoons[1].Jump();
+    racoons[0].GiveMilk();
+    racoons[1].GiveMilk();
+
+    console.log(racoons);
+
+</script>
+</body>
+</html>
+
