@@ -14,11 +14,11 @@
         this.gender = gender;
     }
 
-    Animal.prototype.Run = function() {
+    Animal.prototype.run = function() {
         console.log("Animal Running");
     };
 
-    Animal.prototype.Jump = function() {
+    Animal.prototype.jump = function() {
         console.log("Animal Jumping");
     };
 
@@ -31,7 +31,7 @@
     Mammal.prototype = Object.create(Animal.prototype);
     Mammal.prototype.constructor = Mammal;
 
-    Mammal.prototype.GiveMilk = function() {
+    Mammal.prototype.giveMilk = function() {
         var value = this.gender;
         if(value === 'Female'){
             console.log('Can give milk');
@@ -53,11 +53,11 @@
 
     var racoons = [new Racoon("Female"), new Racoon("Male"), new Racoon()];
 
-    racoons[0].Run();
-    racoons[1].Jump();
-    racoons[0].GiveMilk();
-    racoons[1].GiveMilk();
-    racoons[2].GiveMilk();
+    racoons[0].run();
+    racoons[1].jump();
+    racoons[0].giveMilk();
+    racoons[1].giveMilk();
+    racoons[2].giveMilk();
 
     console.log(racoons);
 
