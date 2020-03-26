@@ -26,90 +26,67 @@
 
     //map
     function map(arr, cb) {
-        cb(arr);
+        var newArray = [];
+        for (var i = 0; i < arr.length; i++) {
+            var value = cb(arr[i]);
+            newArray.push(value);
+        }
+        return newArray;
     }
 
-    map(arr, function () {
-        var doubles = arr.map(function(value) {
-            return value * 2;
-        });
-        console.log(doubles);
+    var double = map(arr, function (value) {
+        return value * 2;
     });
+
+    console.log(double);
 
     //filter
     function filter(arr, cb) {
-        cb(arr);
+        var filteredArr = [];
+        for (var i = 0; i < arr.length; i++) {
+            if (cb(arr[i])) {
+                filteredArr.push(arr[i]);
+            }
+        }
+        return filteredArr;
     }
 
-    filter(arr, function () {
-        var even = arr.filter(function(num) {
-            return !(num % 2);
-        });
-        console.log(even);
+    var filterOdd = filter(arr, function (num) {
+        return num % 2 !== 0;
     });
 
+    console.log(filterOdd);
 
 
     //some
     function some(arr, cb) {
         for (var i = 0; i < arr.length; i++) {
-            cb(arr[i]);
-        }
-    }
-
-    some(arr, function (value) {
-        var someElement = value > 3;
-        if (someElement) {
-            console.log('From array: [' + arr + ']. Some of value bigger then 3: ' + someElement);
-            return true;
+            if (cb(arr[i])) {
+                return true;
+            }
         }
         return false;
+    }
+
+    var someBigger = some(arr, function (num) {
+        return num > 3;
     });
+    console.log('Some of value bigger then 3: ' + someBigger);
 
     //every
     function every(arr, cb) {
         for (var i = 0; i < arr.length; i++) {
-            cb(arr[i]);
-        }
-    }
-
-    every(arr, function (value) {
-        var everyElement = value >= 0;
-        if (!everyElement) {
-            console.log('Every element bigger then 0: ' + everyElement);
-            return false;
+            if (cb(arr[i]) === false) {
+                return false;
+            }
         }
         return true;
+    }
+
+    var everyElement = every(arr, function (el) {
+        return el <= 0;
     });
-
-
-
-
-
-
-
-    // methods
-    //  arr.forEach(function (value) {
-    //      console.log('forEach ' +value);
-    //  });
-    //
-    // var doubles = arr.map(function(value) {
-    //     return value * 2;
-    // });
-    //
-    // function even(num) {
-    //     return !(num % 2);
-    // }
-    //
-    // function biggerThen(num) {
-    //     return num > 3;
-    // }
-    //
-    //  console.log(doubles);
-    //  console.log(arr.filter(even));
-    //  console.log(arr.some(biggerThen));
-    //  console.log(arr.every(biggerThen));
-
+    console.log('Every element less then 0: ' + everyElement);
 
 
 
