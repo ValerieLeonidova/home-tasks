@@ -1,7 +1,6 @@
 {
   "name": "task-21",
   "version": "1.0.0",
-  "description": "",
   "main": "http-example.js",
   "dependencies": {
     "express": "^4.17.1",
@@ -12,5 +11,6 @@
     "start": "nodemon express-server.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "description": ""
 }
