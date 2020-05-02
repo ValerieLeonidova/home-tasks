@@ -5,8 +5,9 @@ const Episode = require("./models/episode");
 const axios = require('axios').default;
 
 axios.get('https://ghibliapi.herokuapp.com/films/')
-    .then(function (responce) {
-        return responce.data;
+    .then(
+        function (response) {
+        return response.data;
     })
     .then(
         function (data) {
