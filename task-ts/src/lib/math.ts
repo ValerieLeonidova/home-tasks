@@ -17,9 +17,9 @@ export const alphabeticalOrder = (str: string) => {
 
 export const uppercaseConvert = (str: string) => {
     var arr = str.split(' ');
-    var newArr = [];
-    for (var i = 0; i < arr.length; i++) {
+    var newArr:string[] = [];
+    arr.forEach((_, i) => {
         newArr.push(arr[i].charAt(0).toUpperCase() + arr[i].slice(1));
-    }
+    });
     return newArr.join(' ');
 };
